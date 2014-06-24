@@ -10,7 +10,7 @@ include_recipe 'ark::default'
 ark 'kibana' do
   url node['kibana3']['install_zip_url']
   path node['kibana3']['install_dir']
-  owner ubuntu
+  owner 'ubuntu'
   action :put
 end
 
