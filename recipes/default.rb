@@ -27,11 +27,11 @@ end
 
 template "/etc/nginx/sites-available/default" do
   source 'kibana-nginx.conf.erb'
-  cookbook 'kibana'
+  cookbook 'kibana3'
   notifies :reload, "service[nginx]"
   variables(
-    :install_dir       => node['kibana']['install_dir'],
-    :listen_port      => node['kibana']['nginx']['listen_port'],
+    :install_dir       => node['kibana3']['install_dir'],
+    :listen_port      => node['kibana3']['nginx']['listen_port'],
   )
   mode "0750"
   owner 'ubuntu'
