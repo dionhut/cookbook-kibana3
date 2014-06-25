@@ -15,6 +15,9 @@ end
 template "#{node['kibana3']['install_dir']}/config.js" do
   source 'config.js.erb'
   cookbook 'kibana3'
+  variables(
+    :es_host      => node['kibana3']['es_host'],
+  )
   mode "0750"
 end
 
