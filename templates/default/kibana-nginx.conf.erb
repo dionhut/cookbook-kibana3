@@ -2,7 +2,7 @@ server {
 	listen                <%= @listen_port %> default_server;
 	listen                [::]:<%= @listen_port %> default_server ipv6only=on;
 
-	root                  <%= @install_dir %>/kibana;
+	root                  <%= @install_dir %>/kibana3;
 	index                 index.html index.htm;
 
 	server_name localhost;
