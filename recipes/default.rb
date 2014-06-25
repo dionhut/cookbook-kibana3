@@ -21,11 +21,11 @@ template "#{node['kibana3']['install_dir']}/config.js" do
   owner 'ubuntu'
 end
 
-node.set['nginx']['default_site_enabled'] = false
+apt_package "nginx" do
+  action :install
+end
 
-include_recipe "nginx"
-
-template "/etc/nginx/sites-available/kibana" do
+template "/etc/nginx/sites-available/default" do
   source 'kibana-nginx.conf.erb'
   cookbook 'kibana'
   notifies :reload, "service[nginx]"
@@ -36,5 +36,3 @@ template "/etc/nginx/sites-available/kibana" do
   mode "0750"
   owner 'ubuntu'
 end
-
-nginx_site "kibana"
