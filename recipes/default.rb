@@ -33,5 +33,5 @@ template "/etc/nginx/sites-available/default" do
 end
 
 service "nginx" do
-  action: restart
+  action :restart
 end
